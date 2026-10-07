@@ -1,7 +1,45 @@
-node_modules
-.next
-out
-npm-debug.log*
-.DS_Store
-.env.local
-.env
+# AV Design Studio Portfolio
+
+A premium portfolio website for an architectural and interior design studio.
+
+## Features
+
+- Luxury studio homepage
+- Interior and exterior project gallery
+- Like, share, and comment interaction on project cards
+- Creator upload dashboard for adding new design content
+- About, services, and contact pages
+- Responsive modern layout
+
+## Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+## Getting started
+
+```bash
+npm install
+npm run dev
+```
+
+Then open http://localhost:3000
+
+## Notes
+
+The upload dashboard stores new projects in the browser's localStorage so you can test the creator upload workflow without a backend.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

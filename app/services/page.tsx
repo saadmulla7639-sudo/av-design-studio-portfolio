@@ -2,44 +2,55 @@ import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { SectionHeading } from '@/components/section-heading';
 
-const services = [
-  {
-    title: 'Architectural Design',
-    description: 'Concept planning, elevation considerations, façade design, and holistic spatial direction for residential and commercial developments.',
-  },
-  {
-    title: 'Interior Styling',
-    description: 'Room-by-room interior planning, finishes, custom detailing, lighting design, and experience-driven material palettes.',
-  },
-  {
-    title: 'Exterior Enhancement',
-    description: 'Outdoor living spaces, landscaping coordination, façade transformations, and luxury exterior detailing that increase curb appeal.',
-  },
-  {
-    title: 'Turnkey Consultation',
-    description: 'End-to-end support for design selections, execution guidance, and final styling review to keep your project cohesive and polished.',
-  },
-];
-
-export default function ServicesPage() {
+export default function AboutPage() {
   return (
     <main className="bg-stone-950 text-stone-100">
       <SiteHeader />
 
-      <section className="mx-auto max-w-7xl px-6 pb-20 pt-20 lg:px-10">
+      <section className="mx-auto max-w-5xl px-6 pb-20 pt-20 lg:px-10">
         <SectionHeading
-          eyebrow="Services"
-          title="Thoughtful architectural and interior services tailored to your vision."
-          description="We help clients refine their vision into beautiful spaces that perform beautifully, feel premium, and stand the test of time."
+          eyebrow="About us"
+          title="We create spaces with culture, comfort, and lasting presence."
+          description="AV Design Studio is a multidisciplinary architecture and interior design practice crafting serene, expressive spaces for living, working, and gathering."
         />
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {services.map((service) => (
-            <div key={service.title} className="rounded-3xl border border-stone-800 bg-stone-900 p-7">
-              <h3 className="text-2xl font-medium text-white">{service.title}</h3>
-              <p className="mt-4 text-stone-300">{service.description}</p>
-            </div>
-          ))}
+        <div className="mt-10 grid gap-10 md:grid-cols-2">
+          <div className="overflow-hidden rounded-[2rem]">
+            <img
+              src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80"
+              alt="Studio team in design meeting"
+              className="h-full w-full object-cover"
+            />
+          </div>
+
+          <div className="space-y-6 text-stone-300">
+            <p>
+              Our studio blends architecture, interior styling, material planning, and lifestyle-driven design to produce spaces that are both expressive and practical.
+            </p>
+            <p>
+              We work closely with homeowners, developers, hospitality brands, and businesses to shape spaces that support daily rituals while making a memorable impression.
+            </p>
+            <p>
+              Every concept begins with listening—understanding how a space should feel, how people should move through it, and which details define its identity. The result is a refined environment that feels considered and enduring.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-stone-800 bg-stone-900/70 py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              ['12+', 'Years in practice'],
+              ['40+', 'Design consultants'],
+              ['120+', 'Projects completed'],
+            ].map(([value, label]) => (
+              <div key={label} className="rounded-3xl border border-stone-800 bg-stone-950 p-8 text-center">
+                <div className="text-4xl font-semibold text-white">{value}</div>
+                <div className="mt-2 text-stone-400">{label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -47,3 +58,57 @@ export default function ServicesPage() {
     </main>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,17 +1,83 @@
-export function SectionHeading({
-  eyebrow,
-  title,
-  description,
-}: {
-  eyebrow: string;
-  title: string;
-  description?: string;
-}) {
+'use client';
+
+import { useEffect, useState } from 'react';
+import { defaultProjects, type Project } from '@/data/projects';
+import { ProjectCard } from '@/components/project-card';
+
+const STORAGE_KEY = 'av-design-studio-projects';
+
+export function ProjectGallery() {
+  const [projects, setProjects] = useState<Project[]>(defaultProjects);
+
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      try {
+        const parsed = JSON.parse(stored) as Project[];
+        if (parsed.length > 0) setProjects(parsed);
+      } catch {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultProjects));
+      }
+    }
+  }, []);
+
   return (
-    <div className="max-w-3xl">
-      <div className="text-sm uppercase tracking-[0.2em] text-luxury-300">{eyebrow}</div>
-      <h2 className="mt-4 text-3xl font-medium text-white md:text-5xl">{title}</h2>
-      {description ? <p className="mt-4 text-lg text-stone-300">{description}</p> : null}
+    <div className="mt-10 grid gap-8 lg:grid-cols-3">
+      {projects.map((project) => (
+        <ProjectCard key={project.id} project={project} />
+      ))}
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

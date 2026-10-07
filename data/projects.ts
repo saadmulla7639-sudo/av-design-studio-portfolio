@@ -1,81 +1,67 @@
-'use client';
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Portfolio', href: '/projects' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Upload', href: '/admin' },
+];
 
-import { useState } from 'react';
-
-export type Project = {
-  id: number;
-  title: string;
-  category: string;
-  location: string;
-  year: string;
-  image: string;
-  description: string;
-  likes: number;
-  shares: number;
-  comments: number;
-};
-
-export function ProjectCard({ project }: { project: Project }) {
-  const [liked, setLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(project.likes);
-  const [commentOpen, setCommentOpen] = useState(false);
-
-  const handleLike = () => {
-    setLiked((value) => {
-      const next = !value;
-      setLikeCount((count) => count + (next ? 1 : -1));
-      return next;
-    });
-  };
-
+export function SiteHeader() {
   return (
-    <article className="overflow-hidden rounded-[2rem] border border-stone-800 bg-stone-900">
-      <div className="relative">
-        <img src={project.image} alt={project.title} className="h-80 w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent" />
-        <div className="absolute left-5 top-5 rounded-full border border-white/10 bg-stone-950/60 px-3 py-1 text-xs uppercase tracking-[0.2em] text-stone-200 backdrop-blur-sm">
-          {project.category}
-        </div>
-      </div>
-
-      <div className="p-6">
-        <div className="flex items-center justify-between gap-2">
+    <header className="sticky top-0 z-50 border-b border-stone-800 bg-stone-950/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+        <a href="/" className="flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-luxury-300 to-luxury-600 text-sm font-semibold text-stone-950">
+            AV
+          </div>
           <div>
-            <h3 className="text-2xl font-medium text-white">{project.title}</h3>
-            <div className="mt-2 text-sm text-stone-400">{project.location} • {project.year}</div>
+            <div className="text-lg font-semibold tracking-[0.24em] text-white">AV</div>
+            <div className="text-[10px] uppercase tracking-[0.3em] text-stone-400">Design Studio</div>
           </div>
-          <span className="rounded-full border border-stone-700 px-3 py-1 text-xs uppercase tracking-[0.2em] text-stone-300">
-            Featured
-          </span>
-        </div>
+        </a>
 
-        <p className="mt-4 text-stone-300">{project.description}</p>
+        <nav className="hidden items-center gap-6 md:flex">
+          {navItems.map((item) => (
+            <a key={item.label} href={item.href} className="text-[11px] uppercase tracking-[0.2em] text-stone-300 transition hover:text-luxury-300">
+              {item.label}
+            </a>
+          ))}
+        </nav>
 
-        <div className="mt-6 flex items-center justify-between border-t border-stone-800 pt-5 text-sm text-stone-300">
-          <div className="flex items-center gap-5">
-            <button onClick={handleLike} className={`transition ${liked ? 'text-luxury-300' : 'hover:text-white'}`}>
-              {likeCount} likes
-            </button>
-            <button onClick={() => setCommentOpen((value) => !value)} className="hover:text-white">
-              {project.comments} comments
-            </button>
-            <span>{project.shares} shares</span>
-          </div>
-          <a href="/contact" className="text-luxury-300 hover:text-luxury-200">
-            Enquire
-          </a>
-        </div>
-
-        {commentOpen ? (
-          <div className="mt-5 rounded-2xl border border-stone-800 bg-stone-950 p-4">
-            <div className="mb-3 text-sm uppercase tracking-[0.2em] text-stone-400">Recent comments</div>
-            <div className="space-y-3 text-stone-300">
-              <div>“The atmosphere is incredibly refined and calming.”</div>
-              <div>“Beautiful use of natural tones and statement lighting.”</div>
-            </div>
-          </div>
-        ) : null}
+        <a href="/contact" className="rounded-full border border-luxury-400 bg-luxury-400 px-5 py-2.5 text-sm font-medium text-stone-950 transition hover:bg-luxury-300">
+          Get a Quote
+        </a>
       </div>
-    </article>
+    </header>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
